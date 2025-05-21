@@ -417,7 +417,8 @@ func (c *Injector) autowire(v reflect.Value, str string, stack *Stack) error {
 			if str != "" {
 				nullable = true
 				if str != "?" {
-					for s := range strings.SplitSeq(str, ",") {
+					// for s := range strings.SplitSeq(str, ",") {
+					for _, s := range strings.Split(str, ",") {
 						g := parseWireTag(s)
 						tags = append(tags, g)
 						if !g.nullable {

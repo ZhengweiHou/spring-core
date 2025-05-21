@@ -259,7 +259,8 @@ func (p *PropertySources) getFiles(dir string, resolver conf.Properties) (_ []st
 	}
 
 	if activeProfiles = strings.TrimSpace(activeProfiles); activeProfiles != "" {
-		for s := range strings.SplitSeq(activeProfiles, ",") {
+		// for s := range strings.SplitSeq(activeProfiles, ",") {
+		for _, s := range strings.Split(activeProfiles, ",") {
 			if s = strings.TrimSpace(s); s != "" {
 				files = append(files, []string{
 					fmt.Sprintf("%s/%s-%s.properties", dir, p.configName, s),

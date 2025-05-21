@@ -324,7 +324,8 @@ func (d *BeanDefinition) OnProfiles(profiles string) {
 			return false, nil
 		}
 		ss := strings.Split(strings.TrimSpace(profiles), ",")
-		for s := range strings.SplitSeq(val, ",") {
+		// for s := range strings.SplitSeq(val, ",") {
+		for _, s := range strings.Split(val, ",") {
 			if slices.Contains(ss, s) {
 				return true, nil
 			}

@@ -18,13 +18,9 @@ package main
 
 import (
 	"context"
-	"fmt"
-	"io"
-	"net/http"
 	"time"
 
 	"github.com/go-spring/spring-core/gs"
-	"github.com/lvan100/go-loop"
 
 	_ "github.com/go-spring/spring-core/gs/examples/bookman/src/app"
 	_ "github.com/go-spring/spring-core/gs/examples/bookman/src/biz"
@@ -44,20 +40,20 @@ func main() {
 func runTest(ctx context.Context) error {
 	time.Sleep(time.Millisecond * 500)
 
-	loop.Times(5, func(_ int) {
-		url := "http://127.0.0.1:9090/books"
-		resp, err := http.Get(url)
-		if err != nil {
-			panic(err)
-		}
-		b, err := io.ReadAll(resp.Body)
-		if err != nil {
-			panic(err)
-		}
-		defer resp.Body.Close()
-		fmt.Print(string(b))
-		time.Sleep(time.Millisecond * 400)
-	})
+	// loop.Times(5, func(_ int) {
+	// 	url := "http://127.0.0.1:9090/books"
+	// 	resp, err := http.Get(url)
+	// 	if err != nil {
+	// 		panic(err)
+	// 	}
+	// 	b, err := io.ReadAll(resp.Body)
+	// 	if err != nil {
+	// 		panic(err)
+	// 	}
+	// 	defer resp.Body.Close()
+	// 	fmt.Print(string(b))
+	// 	time.Sleep(time.Millisecond * 400)
+	// })
 
 	// Shut down the application gracefully
 	gs.ShutDown()

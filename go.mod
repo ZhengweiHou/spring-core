@@ -1,11 +1,14 @@
 module github.com/go-spring/spring-core
 
-go 1.24
+// go 1.24
+go 1.23.6
+
+replace github.com/lvan100/go-assert v0.0.2 => ../go-assert
 
 require (
 	github.com/expr-lang/expr v1.17.2
-	github.com/lvan100/go-assert v0.0.2
-	github.com/lvan100/go-loop v0.0.1
+	// github.com/lvan100/go-assert v0.0.2
+	// github.com/lvan100/go-loop v0.0.1
 	github.com/magiconair/properties v1.8.10
 	github.com/pelletier/go-toml v1.9.5
 	github.com/spf13/cast v1.7.1
